@@ -3,7 +3,7 @@ from modules.preprocessor import preprocess_emails
 from modules.ai_analyzer import analyze_email
 from modules.scraper_ensa import get_new_announcements
 
-print("🛠 MODE TEST MANUEL ACTIVÉ - Aucun message WhatsApp ne sera envoyé.\n")
+print(" MODE TEST MANUEL ACTIVÉ - Aucun message WhatsApp ne sera envoyé.\n")
 
 # 1. Collecte
 print(" Récupération des emails (Dernières 24h)...")
