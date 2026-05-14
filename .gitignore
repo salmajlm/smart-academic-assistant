@@ -1,0 +1,52 @@
+# =========================
+# 1. ENVIRONNEMENT PYTHON
+# =========================
+# Ignore les dossiers d'environnement virtuel
+venv/
+env/
+.venv/
+
+# Ignore les fichiers compilés de Python (qui s'auto-génèrent)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# =========================
+# 2. SÉCURITÉ ET SECRETS (CRITIQUE)
+# =========================
+# Fichiers contenant tes clés API (OpenAI, Twilio, etc.)
+.env
+
+# Fichiers de connexion à Google (Ne jamais partager !)
+credentials.json
+crediants.json
+token.json
+*.json.bak
+
+# Secrets spécifiques à Streamlit (si tu en utilises plus tard)
+.streamlit/secrets.toml
+
+# =========================
+# 3. MÉMOIRE ET ÉTATS LOCAUX
+# =========================
+# Ces fichiers changent tout le temps sur ton PC, pas besoin de les versionner
+data/processed_emails.json
+data/completed_tasks.json
+data/last_run.txt
+last_run.txt
+data/ensa_announcements.json
+# =========================
+# 4. SYSTÈME D'EXPLOITATION
+# =========================
+# Fichiers cachés générés par Windows ou Mac
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+# 5. LOGS ET CACHE
+# =========================
+*.log
+.cache/
+.pytest_cache/
