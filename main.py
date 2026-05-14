@@ -41,7 +41,7 @@ for announcement in announcements:
         continue
 
     annonces_valides += 1
-    print(f"\n🔹 Titre : {title}")
+    print(f"\n Titre : {title}")
 
     message = {"subject": title, "body": content}
     analysis = analyze_email(message)
