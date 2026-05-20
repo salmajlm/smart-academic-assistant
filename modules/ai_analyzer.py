@@ -52,9 +52,9 @@ Sois très précis sur les noms de professeurs, les matières (ex: Big Data, Chi
 
 prompt = ChatPromptTemplate.from_template(PROMPT_RULES)
 
-# ---------------------------------------------------------
+
 # 4. INITIALISATION DU MODÈLE ET DE LA CHAÎNE (LCEL)
-# ---------------------------------------------------------
+
 if AI_PROVIDER == "ollama":
     from langchain_ollama import ChatOllama
 

@@ -4,7 +4,7 @@ from datetime import datetime
 from auto_email_workflow import run_auto_email_workflow #afin de le lancer automaticly
 
 # Paramètres de l'heure cible
-TARGET_HOUR = 16
+TARGET_HOUR = 8
 TARGET_MINUTE = 0
 
 LAST_RUN_FILE = "last_run.txt"
@@ -30,7 +30,7 @@ def should_run_today():
     today = now.strftime("%Y-%m-%d")
     last_run = load_last_run_date()
 
-    # 1. Déjà exécuté aujourd’hui ?
+    # 1. Déjà exécuté aujourd’hui
     if last_run == today:
         return False
 

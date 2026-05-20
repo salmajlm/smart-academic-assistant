@@ -5,7 +5,7 @@ from pathlib import Path
 from datetime import datetime, timedelta
 
 BASE_URL = "https://ensa.uit.ac.ma/"
-OUTPUT_FILE = Path("../data/ensa_announcements.json")
+OUTPUT_FILE = Path(__file__).resolve().parent.parent / "data" / "ensa_announcements.json"
 HEADERS = {"User-Agent": "Mozilla/5.0"}# navigateur va voir qui veut entre / on lui dira que je suis mozilla
 
 

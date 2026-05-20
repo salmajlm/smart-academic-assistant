@@ -8,15 +8,15 @@ from modules.notifier import send_whatsapp  #module twilio pour l envoi
 
 
 def run_auto_email_workflow():
-    print("🚀 Lancement du workflow automatisé...")
+    print(" Lancement du workflow automatisé...")
 
     # 1. Collecte des EMAILS (Dernières 24h)
-    print("📥 Récupération des emails...")
+    print(" Récupération des emails...")
     emails = load_real_emails()#collecte des mssg non lus
     cleaned_emails = preprocess_emails(emails)#on enleve ce qui inutile
 
     # 2. Collecte des ANNONCES ENSA (Uniquement les nouvelles)
-    print("🌐 Vérification des nouvelles annonces sur le site ENSA...")
+    print("Vérification des nouvelles annonces sur le site ENSA...")
     new_announcements = get_new_announcements()
 
     all_tasks = []#panier où on stocke mails + annonces
@@ -25,7 +25,7 @@ def run_auto_email_workflow():
 
     # 3. Analyse des Emails via l'IA
     if cleaned_emails:#si c est vide cad false ==> on saute cette etape
-        print(f"📩 Analyse de {len(cleaned_emails)} emails...")
+        print(f" Analyse de {len(cleaned_emails)} emails...")
         for email in cleaned_emails:
             # On analyse l'email
             analysis = analyze_email(email)#L'IA lit le mail et remplit ton "moule" Pydantic (Urgence, Deadline, Action).
@@ -46,7 +46,7 @@ def run_auto_email_workflow():
 
     # 4. Traitement des Annonces
     if new_announcements:
-        print(f"📢 {len(new_announcements)} nouvelles annonces détectées !")
+        print(f" {len(new_announcements)} nouvelles annonces détectées !")
         for annonc in new_announcements:
             all_tasks.append({
                 "type": "ANNONCE_ENSA",
@@ -64,15 +64,15 @@ def run_auto_email_workflow():
     summary_message = generate_smart_summary(all_tasks)#==> panier complet à l ai==>messg court
 
     # Optionnel : Afficher dans le terminal pour débugger
-    print("\n--- MESSAGE GÉNÉRÉ ---\n", summary_message, "\n----------------------")
+    print("\n--- MESSAGE GÉNÉRÉ ---\n", summary_message, "\n-")
 
     # 6. Envoi WhatsApp
-    print("📱 Envoi du message WhatsApp...")
+    print(" Envoi du message WhatsApp...")
     try:
         sid = send_whatsapp(summary_message)#appel de twilio pour envoyer mssg
-        print(f"✅ Workflow terminé avec succès ! (SID: {sid})")
+        print(f" Workflow terminé avec succès ! (SID: {sid})")
     except Exception as e:
-        print(f"❌ Erreur lors de l'envoi WhatsApp : {e}")
+        print(f" Erreur lors de l'envoi WhatsApp : {e}")
 
 
 if __name__ == "__main__":
